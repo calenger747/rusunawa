@@ -1,0 +1,1 @@
+CREATE DEFINER=`root`@`localhost` EVENT `pembayaran` ON SCHEDULE EVERY 1 MONTH STARTS '2018-09-10 00:00:00' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'menunggak pembayaran' DO UPDATE tbl_pembayaran SET keterangan = 'MENUNGGAK' WHERE keterangan = 'BELUM BAYAR'
