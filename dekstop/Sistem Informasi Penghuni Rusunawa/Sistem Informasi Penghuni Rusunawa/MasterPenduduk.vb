@@ -11,7 +11,6 @@ Public Class MasterPenduduk
         Label56.ResetText()
         Label57.ResetText()
         Label59.ResetText()
-        TextBox1.Clear()
         TextBox10.Clear()
         TextBox11.Clear()
         TextBox12.Clear()
@@ -26,7 +25,6 @@ Public Class MasterPenduduk
         TextBox21.Clear()
         TextBox22.Clear()
         TextBox2.Clear()
-        TextBox3.Clear()
         TextBox4.Clear()
         TextBox5.Clear()
         TextBox6.Clear()
@@ -150,6 +148,7 @@ Public Class MasterPenduduk
         ComboBox26.Text = DR.Item("dapat_modal")
         ComboBox27.Text = DR.Item("ikut_uppks")
         DateTimePicker2.Text = DR.Item("kapan_kb")
+        Label61.Text = DR.Item("no_kontrak")
         Button2.Enabled = True
         If ComboBox12.Text = "" Or ComboBox12.Text = "BELUM" Or ComboBox12.Text = "TIDAK" Then
             DateTimePicker2.Enabled = False
@@ -238,9 +237,62 @@ Public Class MasterPenduduk
         DataGridView1.Visible = False
     End Sub
 
+    Sub noSuratpernyataan()
+        Dim year As String
+        Dim month As String
+
+        year = Mid(Now.Year, 1, 4)
+        month = Mid(Now.Month, 1, 2)
+        Select Case True
+            Case (month = 1)
+                month = "I"
+            Case (month = 2)
+                month = "II"
+            Case (month = 3)
+                month = "III"
+            Case (month = 4)
+                month = "VI"
+            Case (month = 5)
+                month = "V"
+            Case (month = 6)
+                month = "VI"
+            Case (month = 7)
+                month = "VII"
+            Case (month = 8)
+                month = "VIII"
+            Case (month = 9)
+                month = "IX"
+            Case (month = 10)
+                month = "X"
+            Case (month = 11)
+                month = "XI"
+            Case (month = 12)
+                month = "XII"
+
+
+        End Select
+
+        koneksi()
+        Dim otomatis As Single
+        CMD = New MySqlCommand("SELECT COUNT(*) AS no_transaksi FROM tbl_pembelian_token", CONN)
+        DR = CMD.ExecuteReader
+        While DR.Read()
+            otomatis = Val(DR.Item("no_transaksi").ToString) + 1
+        End While
+        Select Case Len(Trim(otomatis))
+            Case 1 : Label61.Text = "SP/0000" + Trim(Str(otomatis)) + "/RNSW/" + month + "/" + Format(Now(), "yyyy")
+            Case 2 : Label61.Text = "SP/000" + Trim(Str(otomatis)) + "/RNSW/" + month + "/" + Format(Now(), "yyyy")
+            Case 3 : Label61.Text = "SP/00" + Trim(Str(otomatis)) + "/RNSW/" + month + "/" + Format(Now(), "yyyy")
+            Case 4 : Label61.Text = "SP/0" + Trim(Str(otomatis)) + "/RNSW/" + month + "/" + Format(Now(), "yyyy")
+        End Select
+        CONN.Close()
+    End Sub
+
     Private Sub MasterPenduduk_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         koneksi()
+        kosong()
         DateTimePicker3.Text = DateTime.Parse("10-" + Format(Now(), "MM") + "-" + Format(Now(), "yyyy")).AddMonths(1)
+        DateTimePicker4.Text = DateTime.Parse(Format(Now(), "dd-MM") + "-" + Format(Now(), "yyyy")).AddYears(3)
         TextBox1.Focus()
         Label60.Text = (Format(Now(), "MMMM yyyy"))
     End Sub
@@ -248,11 +300,12 @@ Public Class MasterPenduduk
     Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
         If e.KeyChar = Chr(13) Then
             koneksi()
-            CMD = New MySqlCommand("SELECT * FROM tbl_keluarga,tbl_alamat,tbl_penduduk,tbl_keluarga_get_modal,tbl_keluarga_meninggal,tbl_keluarga_sejahtera,tbl_keluarga_status_dan_kb,tbl_unit WHERE tbl_keluarga.id_kk = tbl_penduduk.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_get_modal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_meninggal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_sejahtera.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_status_dan_kb.id_kk AND tbl_keluarga.id_penghuni = tbl_unit.id_unit AND tbl_keluarga.id_kk = tbl_alamat.id_kk AND tbl_keluarga.id_kk = '" & TextBox1.Text & "'", CONN)
+            CMD = New MySqlCommand("SELECT * FROM tbl_keluarga,tbl_alamat,tbl_penduduk,tbl_keluarga_get_modal,tbl_keluarga_meninggal,tbl_keluarga_sejahtera,tbl_keluarga_status_dan_kb,tbl_unit,tbl_kontrak WHERE tbl_keluarga.id_kk = tbl_kontrak.no_kk AND tbl_keluarga.id_kk = tbl_penduduk.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_get_modal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_meninggal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_sejahtera.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_status_dan_kb.id_kk AND tbl_keluarga.id_penghuni = tbl_unit.id_unit AND tbl_keluarga.id_kk = tbl_alamat.id_kk AND tbl_keluarga.id_kk = '" & TextBox1.Text & "'", CONN)
             DR = CMD.ExecuteReader
             DR.Read()
             If Not DR.HasRows Then
                 dataBaru()
+                noSuratpernyataan()
             Else
                 ketemu()
                 tampilPendudukCari()
@@ -364,6 +417,15 @@ salah:
         End If
     End Sub
 
+    Sub surat_insert()
+        SuratPernyataan.Label5.Text = "No. " + Label61.Text
+        SuratPernyataan.Label8.Text = TextBox1.Text
+        SuratPernyataan.Label10.Text = TextBox2.Text
+        SuratPernyataan.Label12.Text = TextBox7.Text + ", RT. " + TextBox8.Text + ", RW. " + TextBox9.Text + ", " + TextBox11.Text + ", " + TextBox12.Text + ", " + TextBox13.Text + ", " + TextBox14.Text + ", " + TextBox15.Text
+        SuratPernyataan.Label7.Text = "     Dengan ini bersedia untuk tunduk dan patuh terhadap aturan yang berlaku untuk bisa tinggal di Rusunawa Kota Depok. Apabila saya melanggar aturan tersebut, saya siap dikeluarkan dari Rusunawa Kota Depok. Surat Perjanjian ini berlaku selama 3 tahun dihitung mulai " + Format(Now(), "dd/MM/yyyy") + " sampai " + DateTime.Parse(Format(Now(), "dd MMMM yyyy")).AddYears(3) + "."
+        SuratPernyataan.ShowDialog()
+    End Sub
+
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Then
             MsgBox("Isikan data dengan lengkap", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
@@ -429,6 +491,12 @@ salah:
                     CMD = New MySqlCommand(ubahUnit, CONN)
                     CMD.ExecuteNonQuery()
 
+                    'insert tabel kontrak
+                    koneksi()
+                    Dim simpanKontrak As String = "INSERT INTO tbl_kontrak (no_kontrak, no_kk, id_unit, tgl_mulai, tgl_akhir, status) VALUES ('" & Label61.Text & "', '" & TextBox1.Text & "', '" & TextBox3.Text & "', '" & Format(Now(), "yyyy-mm-dd") & "', '" & Format("yyyy-MM-dd", DateTimePicker4.Text) & "', 'Aktif' "
+                    CMD = New MySqlCommand(simpanKontrak, CONN)
+                    CMD.ExecuteNonQuery()
+
                     'simpan tabel penduduk
                     Try
                         koneksi()
@@ -439,6 +507,7 @@ salah:
                             CMD.ExecuteNonQuery()
                         Next
                         MsgBox("Data berhasil disimpan", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
+                        surat_insert()
                         kosong()
                     Catch ex As Exception
                         MsgBox(ex.Message)
@@ -495,7 +564,14 @@ salah:
                             CMD = New MySqlCommand(editAlamat, CONN)
                             CMD.ExecuteNonQuery()
 
+                            'edit tabel kontrak
+                            koneksi()
+                            Dim editKontrak As String = "UPDATE tbl_kontrak SET no_kk = '" & TextBox1.Text & "', id_unit = '" & TextBox3.Text & "' WHERE no_kontrak = '" & Label61.Text & "'"
+                            CMD = New MySqlCommand(editKontrak, CONN)
+                            CMD.ExecuteNonQuery()
+
                             MsgBox("Data berhasil disimpan", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
+                            surat_insert()
                             kosong()
                         Catch ex As Exception
                             MsgBox(ex.Message)
@@ -557,6 +633,12 @@ salah:
                 koneksi()
                 Dim hapusKeluarga As String = "DELETE FROM tbl_keluarga WHERE id_kk = '" & TextBox1.Text & "'"
                 CMD = New MySqlCommand(hapusKeluarga, CONN)
+                CMD.ExecuteNonQuery()
+
+                'edit tabel kontrak
+                koneksi()
+                Dim editKontrak As String = "UPDATE tbl_kontrak SET status='Tidak Aktif' WHERE no_kontrak = '" & Label61.Text & "'"
+                CMD = New MySqlCommand(editKontrak, CONN)
                 CMD.ExecuteNonQuery()
 
                 MsgBox("Data berhasil dihapus", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")

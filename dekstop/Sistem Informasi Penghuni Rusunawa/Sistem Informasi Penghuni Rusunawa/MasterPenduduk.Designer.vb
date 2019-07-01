@@ -167,6 +167,8 @@ Partial Class MasterPenduduk
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label59 = New System.Windows.Forms.Label()
         Me.Label60 = New System.Windows.Forms.Label()
+        Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
+        Me.Label61 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -1519,11 +1521,33 @@ Partial Class MasterPenduduk
         Me.Label60.Text = "Label60"
         Me.Label60.Visible = False
         '
+        'DateTimePicker4
+        '
+        Me.DateTimePicker4.CustomFormat = "yyyy-MM-dd"
+        Me.DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker4.Location = New System.Drawing.Point(894, 703)
+        Me.DateTimePicker4.Name = "DateTimePicker4"
+        Me.DateTimePicker4.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePicker4.TabIndex = 14
+        Me.DateTimePicker4.Visible = False
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(1100, 703)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(51, 15)
+        Me.Label61.TabIndex = 15
+        Me.Label61.Text = "Label61"
+        Me.Label61.Visible = False
+        '
         'MasterPenduduk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1211, 750)
+        Me.ClientSize = New System.Drawing.Size(1211, 749)
+        Me.Controls.Add(Me.Label61)
+        Me.Controls.Add(Me.DateTimePicker4)
         Me.Controls.Add(Me.Label60)
         Me.Controls.Add(Me.Label59)
         Me.Controls.Add(Me.Label57)
@@ -1715,4 +1739,6 @@ Partial Class MasterPenduduk
     Friend WithEvents DateTimePicker3 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label59 As System.Windows.Forms.Label
     Friend WithEvents Label60 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker4 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label61 As System.Windows.Forms.Label
 End Class

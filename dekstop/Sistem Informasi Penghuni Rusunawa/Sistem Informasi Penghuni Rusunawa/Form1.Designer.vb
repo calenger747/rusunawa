@@ -41,6 +41,7 @@ Partial Class MenuUtama
         Me.UnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TokenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KependudukanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReservasiUnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembayaranSewaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembelianListrikToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,13 +54,12 @@ Partial Class MenuUtama
         Me.KeluargaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KepalaKeluargaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnitExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SewaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PendapatanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembayaranSewaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembelianListrikToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.InventoryToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReservasiUnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UnitExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -187,6 +187,12 @@ Partial Class MenuUtama
         Me.KependudukanToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.KependudukanToolStripMenuItem.Text = "Kependudukan"
         '
+        'ReservasiUnitToolStripMenuItem
+        '
+        Me.ReservasiUnitToolStripMenuItem.Name = "ReservasiUnitToolStripMenuItem"
+        Me.ReservasiUnitToolStripMenuItem.Size = New System.Drawing.Size(92, 20)
+        Me.ReservasiUnitToolStripMenuItem.Text = "Reservasi Unit"
+        '
         'TransaksiToolStripMenuItem
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PembayaranSewaToolStripMenuItem, Me.PembelianListrikToolStripMenuItem})
@@ -262,6 +268,12 @@ Partial Class MenuUtama
         Me.UnitToolStripMenuItem1.Size = New System.Drawing.Size(170, 22)
         Me.UnitToolStripMenuItem1.Text = "Unit (Grafik)"
         '
+        'UnitExcelToolStripMenuItem
+        '
+        Me.UnitExcelToolStripMenuItem.Name = "UnitExcelToolStripMenuItem"
+        Me.UnitExcelToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.UnitExcelToolStripMenuItem.Text = "Unit (Excel)"
+        '
         'SewaToolStripMenuItem
         '
         Me.SewaToolStripMenuItem.Name = "SewaToolStripMenuItem"
@@ -291,18 +303,6 @@ Partial Class MenuUtama
         Me.InventoryToolStripMenuItem1.Name = "InventoryToolStripMenuItem1"
         Me.InventoryToolStripMenuItem1.Size = New System.Drawing.Size(170, 22)
         Me.InventoryToolStripMenuItem1.Text = "Inventory"
-        '
-        'ReservasiUnitToolStripMenuItem
-        '
-        Me.ReservasiUnitToolStripMenuItem.Name = "ReservasiUnitToolStripMenuItem"
-        Me.ReservasiUnitToolStripMenuItem.Size = New System.Drawing.Size(92, 20)
-        Me.ReservasiUnitToolStripMenuItem.Text = "Reservasi Unit"
-        '
-        'UnitExcelToolStripMenuItem
-        '
-        Me.UnitExcelToolStripMenuItem.Name = "UnitExcelToolStripMenuItem"
-        Me.UnitExcelToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.UnitExcelToolStripMenuItem.Text = "Unit (Excel)"
         '
         'MenuUtama
         '

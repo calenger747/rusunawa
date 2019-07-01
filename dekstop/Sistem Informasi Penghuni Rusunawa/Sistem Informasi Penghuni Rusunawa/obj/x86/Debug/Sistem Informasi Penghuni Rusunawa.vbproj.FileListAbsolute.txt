@@ -71,3 +71,44 @@ D:\Clone Git\rusunawa\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghu
 D:\Clone Git\rusunawa\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.CariKodeBooking.resources
 D:\Clone Git\rusunawa\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.ExcelUnit.resources
 D:\Clone Git\rusunawa\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.SuratPernyataan.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.exe.config
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.exe
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.xml
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.pdb
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.exe.manifest
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.application
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.exe
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.pdb
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.xml
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.vbprojResolveAssemblyReference.cache
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.CariIDPenghuni.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.CariKodeBooking.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.DetailKeluarga.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.ExcelUnit.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MenuUtama.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.GrafikPendapatan.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.GrafikSewa.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.GrafikUnit.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.KepalaKeluarga.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LaporanInventory.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LaporanPembayaranSewa.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LaporanPembelianToken.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LaporanPenduduk.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LoginForm1.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MasterInventory.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MasterLembaga.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MasterPenduduk.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MasterToken.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MasterUnit.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.MasterUser.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.Resources.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.StrukPembayaranSewa.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.StrukPembelianListrik.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.SuratPernyataan.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.TabelPenduduk.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.TransaksiIuran.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.TransaksiListrik.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.vbproj.GenerateResource.Cache
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.exe.manifest
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.application
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LaporanSurat.resources
