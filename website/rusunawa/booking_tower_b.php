@@ -142,7 +142,7 @@ $sql = mysqli_query($connection, "SELECT * FROM tower_b WHERE kode='$kode_unit'"
   $harga = $row['harga'];
   $status = $row['status'];
  ?>
-<form method="post" action="proses_book_b.php">
+<form method="post" action="proses_booking.php">
 <div class="container">
 <h1><center style="color: white; font-size: 60px;">Booking Request</center></h1>
 

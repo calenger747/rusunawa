@@ -52,7 +52,6 @@
                                 </a>
                                 <div class="text p-3 text-center">
                                     <h3 class="mb-3"><a href="index_denah_tower_a.php">Gedung Tower A</a></h3>
-                                    <p><span class="price mr-2">IDR.250.000</span> <span class="per">per month</span></p>
                                     <ul class="list">
                                         <li><span>Max:</span> 3 Persons</li>
                                         <li><span>Size:</span> 45 m2</li>
@@ -71,7 +70,6 @@
                                 </a>
                                 <div class="text p-3 text-center">
                                     <h3 class="mb-3"><a href="index_denah_tower_b.php">Gedung Tower B</a></h3>
-                                    <p><span class="price mr-2">IDR.225.000</span> <span class="per">per month</span></p>
                                     <ul class="list">
                                         <li><span>Max:</span> 3 Persons</li>
                                         <li><span>Size:</span> 45 m2</li>
@@ -90,7 +88,6 @@
                                 </a>
                                 <div class="text p-3 text-center">
                                     <h3 class="mb-3"><a href="index_denah_tower_c.php">Gedung Tower C</a></h3>
-                                    <p><span class="price mr-2">IDR.200.000</span> <span class="per">per month</span></p>
                                     <ul class="list">
                                         <li><span>Max:</span> 5 Persons</li>
                                         <li><span>Size:</span> 45 m2</li>
@@ -102,71 +99,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 sidebar">
-                    <br>
-                    <div class="sidebar-wrap bg-light">
-                        <h3>Berita Terkini</h3>
-                        <hr>
-                        <?php
-        
-                          date_default_timezone_set('Asia/Jakarta');
-                          include 'connection.php';
-
-                          $tampil=mysqli_query($conn, "SELECT * FROM update_berita ORDER BY kode_berita DESC LIMIT 4");
-                          while ($row=mysqli_fetch_array($tampil)){ 
-                        ?>
-                        <div class="block-21 mb-4 d-flex">
-                            <a href="#<?= $row['kode_berita'];?>" data-toggle="modal" data-target="#beritaModal<?=$row['kode_berita']?>" class="blog-img mr-4"><img style="height: auto; width: 100%;" src="images/<?php echo $row['gambar'];?>" value=""></a>
-                            <div class="text">
-                                <h3 class="heading">
-                                    <?php echo $row['judul_berita'];?>
-                                </h3>
-                                <div class="meta">
-                                    <div>
-                                        <?php echo $row['tanggal'];?>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-sm col-md-6 col-lg-3 ftco-animate">
+                    <div class="room">
+                        <div class="text p-3 text-center">
+                            <h4 class="mb-3">Harga</h4>
+                                <hr>
+                                <span class="per">Lantai 1 : </span><span class="price mr-1">IDR.250.000</span><span class="per">/bln</span><br/>
+                                <span class="per">Lantai 2 : </span><span class="price mr-1">IDR.225.000</span><span class="per">/bln</span><br/>
+                                <span class="per">Lantai 3 : </span><span class="price mr-1">IDR.200.000</span><span class="per">/bln</span><br/>
+                                <span class="per">Lantai 4 : </span><span class="price mr-1">IDR.175.000</span><span class="per">/bln</span><br/>
                         </div>
-                        <div class="modal fade" id="beritaModal<?=$row['kode_berita']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="col-md-12 ftco-animate">
-                                            <h2 class="mb-4 text-center">
-                                                <?php echo $row['judul_berita'];?>
-                                            </h2>
-                                            <div class="single-slider owl-carousel">
-                                                <div class="item">
-                                                    <div class="room-img" style="background-image: url(images/<?php echo $row['gambar'];?>);"></div>
-                                                </div>
-                                                <!-- 
-                                        <div class="item">
-                                            <div class="room-img" style="background-image: url(images/g.jpg);"></div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="room-img" style="background-image: url(images/f.jpg);"></div>
-                                        </div> -->
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-                                            <p>
-                                                <?php echo $row['deskripsi'];?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php } ?>
                     </div>
                 </div>
             </div>
