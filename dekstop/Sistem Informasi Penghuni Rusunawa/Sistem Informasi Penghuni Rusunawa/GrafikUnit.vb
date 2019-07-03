@@ -23,7 +23,7 @@ Public Class GrafikUnit
         Label2.Text = JmlData2 - 1
 
         koneksi()
-        DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE status = 'Kosong'", CONN)
+        DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE status = 'Kosong' OR status = 'Booking'", CONN)
         DS = New DataSet
         DA.Fill(DS)
         DataGridView3.DataSource = DS.Tables(0)
@@ -31,16 +31,6 @@ Public Class GrafikUnit
         Dim JmlData3 As Integer
         JmlData3 = DataGridView3.RowCount
         Label3.Text = JmlData3 - 1
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE status = 'Booking'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView4.DataSource = DS.Tables(0)
-        DataGridView4.ReadOnly = True
-        Dim JmlData4 As Integer
-        JmlData4 = DataGridView4.RowCount
-        Label4.Text = JmlData4 - 1
 
         koneksi()
         DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE status = 'Rusak Ringan'", CONN)
@@ -89,7 +79,7 @@ Public Class GrafikUnit
         Label2.Text = JmlData2 - 1
 
         koneksi()
-        DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE gedung ='" & ComboBox1.Text & "' AND status = 'Kosong'", CONN)
+        DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE gedung ='" & ComboBox1.Text & "' AND status = 'Kosong' OR status = 'Booking'", CONN)
         DS = New DataSet
         DA.Fill(DS)
         DataGridView3.DataSource = DS.Tables(0)
@@ -97,16 +87,6 @@ Public Class GrafikUnit
         Dim JmlData3 As Integer
         JmlData3 = DataGridView3.RowCount
         Label3.Text = JmlData3 - 1
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE gedung ='" & ComboBox1.Text & "' AND status = 'Booking'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView4.DataSource = DS.Tables(0)
-        DataGridView4.ReadOnly = True
-        Dim JmlData4 As Integer
-        JmlData4 = DataGridView4.RowCount
-        Label4.Text = JmlData4 - 1
 
         koneksi()
         DA = New MySqlDataAdapter("SELECT * FROM tbl_unit WHERE gedung ='" & ComboBox1.Text & "' AND status = 'Rusak Ringan'", CONN)
@@ -134,31 +114,48 @@ Public Class GrafikUnit
     End Sub
 
     Sub tambahChart()
-        Me.Chart1.Series("Total Unit").Points.AddXY("Grafik Unit Rusunawa", Label1.Text)
-        Me.Chart1.Series("Unit Terisi").Points.AddXY("Unit Terisi", Label2.Text)
-        Me.Chart1.Series("Unit Kosong").Points.AddXY("Unit Kosong", Label3.Text)
-        Me.Chart1.Series("Unit Terbooking").Points.AddXY("Unit Terbooking", Label5.Text)
-        Me.Chart1.Series("Unit Rusak Ringan").Points.AddXY("Unit Rusak Ringan", Label6.Text)
-        Me.Chart1.Series("Unit Rusak Berat").Points.AddXY("Unit Rusak Berat", Label7.Text)
-        Me.Chart1.Series("Presentase %").Points.AddXY("Presentase %", Label4.Text)
+        tampilUnit()
+        Chart1.Series.Clear()
+
+        tambahSeries()
+
+        Me.Chart1.Series("Kapasitas Gedung (" + Label1.Text + ")").Points.AddXY("Grafik Unit Rusunawa", Label1.Text)
+        Me.Chart1.Series("Unit Rusak Ringan (" + Label5.Text + ")").Points.AddXY("Unit Rusak Ringan", Label5.Text)
+        Me.Chart1.Series("Unit Rusak Berat (" + Label6.Text + ")").Points.AddXY("Unit Rusak Berat", Label6.Text)
+        Me.Chart1.Series("Unit Terisi (" + Label2.Text + ")").Points.AddXY("Unit Terisi", Label2.Text)
+        Me.Chart1.Series("Unit Kosong (" + Label3.Text + ")").Points.AddXY("Unit Kosong", Label3.Text)
+        Me.Chart1.Series("Presentase " + Label4.Text + "%").Points.AddXY("Presentase %", Label4.Text)
+
+        Chart1.Visible = True
+    End Sub
+
+    Sub tambahChart1()
+        tampilUnitGedung()
+        Chart1.Series.Clear()
+
+        tambahSeries()
+
+        Me.Chart1.Series("Kapasitas Gedung (" + Label1.Text + ")").Points.AddXY("Grafik Unit Rusunawa", Label1.Text)
+        Me.Chart1.Series("Unit Rusak Ringan (" + Label5.Text + ")").Points.AddXY("Unit Rusak Ringan", Label5.Text)
+        Me.Chart1.Series("Unit Rusak Berat (" + Label6.Text + ")").Points.AddXY("Unit Rusak Berat", Label6.Text)
+        Me.Chart1.Series("Unit Terisi (" + Label2.Text + ")").Points.AddXY("Unit Terisi", Label2.Text)
+        Me.Chart1.Series("Unit Kosong (" + Label3.Text + ")").Points.AddXY("Unit Kosong", Label3.Text)
+        Me.Chart1.Series("Presentase " + Label4.Text + "%").Points.AddXY("Presentase %", Label4.Text)
 
         Chart1.Visible = True
     End Sub
 
     Sub tambahSeries()
-        Chart1.Series.Add("Total Unit")
-        Chart1.Series.Add("Unit Terisi")
-        Chart1.Series.Add("Unit Kosong")
-        Chart1.Series.Add("Unit Terbooking")
-        Chart1.Series.Add("Unit Rusak Ringan")
-        Chart1.Series.Add("Unit Rusak Berat")
-        Chart1.Series.Add("Presentase %")
+        Chart1.Series.Add("Kapasitas Gedung (" + Label1.Text + ")")
+        Chart1.Series.Add("Unit Rusak Ringan (" + Label5.Text + ")")
+        Chart1.Series.Add("Unit Rusak Berat (" + Label6.Text + ")")
+        Chart1.Series.Add("Unit Terisi (" + Label2.Text + ")")
+        Chart1.Series.Add("Unit Kosong (" + Label3.Text + ")")
+        Chart1.Series.Add("Presentase " + Label4.Text + "%")
     End Sub
 
     Sub kosong()
         Chart1.Series.Clear()
-
-        tambahSeries()
     End Sub
 
     Private Sub GrafikUnit_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -169,12 +166,10 @@ Public Class GrafikUnit
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If ComboBox1.Text = "" Or ComboBox1.Text = "Gedung" Then
             kosong()
-            tampilUnit()
             tambahChart()
         Else
             kosong()
-            tampilUnitGedung()
-            tambahChart()
+            tambahChart1()
         End If
     End Sub
 

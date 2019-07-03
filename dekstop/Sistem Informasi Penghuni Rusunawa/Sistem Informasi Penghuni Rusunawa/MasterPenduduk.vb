@@ -23,11 +23,6 @@ Public Class MasterPenduduk
         TextBox19.Clear()
         TextBox20.Clear()
         TextBox21.Clear()
-        TextBox22.Clear()
-        TextBox2.Clear()
-        TextBox4.Clear()
-        TextBox5.Clear()
-        TextBox6.Clear()
         TextBox7.Clear()
         TextBox8.Clear()
         TextBox9.Clear()
@@ -184,11 +179,6 @@ Public Class MasterPenduduk
         TextBox19.Clear()
         TextBox20.Clear()
         TextBox21.Clear()
-        TextBox22.Clear()
-        TextBox3.Clear()
-        TextBox4.Clear()
-        TextBox5.Clear()
-        TextBox6.Clear()
         TextBox7.Clear()
         TextBox8.Clear()
         TextBox9.Clear()
@@ -274,10 +264,10 @@ Public Class MasterPenduduk
 
         koneksi()
         Dim otomatis As Single
-        CMD = New MySqlCommand("SELECT COUNT(*) AS no_transaksi FROM tbl_pembelian_token", CONN)
+        CMD = New MySqlCommand("SELECT COUNT(*) AS no_kontrak FROM tbl_kontrak", CONN)
         DR = CMD.ExecuteReader
         While DR.Read()
-            otomatis = Val(DR.Item("no_transaksi").ToString) + 1
+            otomatis = Val(DR.Item("no_kontrak").ToString) + 1
         End While
         Select Case Len(Trim(otomatis))
             Case 1 : Label61.Text = "SP/0000" + Trim(Str(otomatis)) + "/RNSW/" + month + "/" + Format(Now(), "yyyy")
@@ -295,36 +285,57 @@ Public Class MasterPenduduk
         DateTimePicker4.Text = DateTime.Parse(Format(Now(), "dd-MM") + "-" + Format(Now(), "yyyy")).AddYears(3)
         TextBox1.Focus()
         Label60.Text = (Format(Now(), "MMMM yyyy"))
+        noSuratpernyataan()
+
+        If TextBox3.Text = "" Then
+
+        Else
+            cariUnit()
+        End If
+
+        If TextBox1.Text = "" Then
+
+        Else
+            cariKK()
+        End If
     End Sub
 
     Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
         If e.KeyChar = Chr(13) Then
-            koneksi()
-            CMD = New MySqlCommand("SELECT * FROM tbl_keluarga,tbl_alamat,tbl_penduduk,tbl_keluarga_get_modal,tbl_keluarga_meninggal,tbl_keluarga_sejahtera,tbl_keluarga_status_dan_kb,tbl_unit,tbl_kontrak WHERE tbl_keluarga.id_kk = tbl_kontrak.no_kk AND tbl_keluarga.id_kk = tbl_penduduk.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_get_modal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_meninggal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_sejahtera.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_status_dan_kb.id_kk AND tbl_keluarga.id_penghuni = tbl_unit.id_unit AND tbl_keluarga.id_kk = tbl_alamat.id_kk AND tbl_keluarga.id_kk = '" & TextBox1.Text & "'", CONN)
-            DR = CMD.ExecuteReader
-            DR.Read()
-            If Not DR.HasRows Then
-                dataBaru()
-                noSuratpernyataan()
-            Else
-                ketemu()
-                tampilPendudukCari()
-            End If
+            cariKK()
+        End If
+    End Sub
+
+    Sub cariKK()
+        koneksi()
+        CMD = New MySqlCommand("SELECT * FROM tbl_keluarga,tbl_alamat,tbl_penduduk,tbl_keluarga_get_modal,tbl_keluarga_meninggal,tbl_keluarga_sejahtera,tbl_keluarga_status_dan_kb,tbl_unit,tbl_kontrak WHERE tbl_keluarga.id_kk = tbl_kontrak.no_kk AND tbl_keluarga.id_kk = tbl_penduduk.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_get_modal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_meninggal.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_sejahtera.id_kk AND tbl_keluarga.id_kk = tbl_keluarga_status_dan_kb.id_kk AND tbl_keluarga.id_penghuni = tbl_unit.id_unit AND tbl_keluarga.id_kk = tbl_alamat.id_kk AND tbl_keluarga.id_kk = '" & TextBox1.Text & "'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not DR.HasRows Then
+            dataBaru()
+            noSuratpernyataan()
+        Else
+            ketemu()
+            tampilPendudukCari()
+        End If
+    End Sub
+
+    Sub cariUnit()
+        koneksi()
+        CMD = New MySqlCommand("SELECT * FROM tbl_unit WHERE id_unit = '" & TextBox3.Text & "' AND status = 'Kosong' OR status = 'Booking'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not DR.HasRows Then
+            MsgBox("Id pelanggan tidak ditemukan atau sudah terisi!", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
+            Exit Sub
+        Else
+            ketemuKWH()
         End If
     End Sub
 
     Private Sub TextBox3_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox3.KeyPress
         If e.KeyChar = Chr(13) Then
-            koneksi()
-            CMD = New MySqlCommand("SELECT * FROM tbl_unit WHERE id_unit = '" & TextBox3.Text & "' AND status = 'Kosong'", CONN)
-            DR = CMD.ExecuteReader
-            DR.Read()
-            If Not DR.HasRows Then
-                MsgBox("Id pelanggan tidak ditemukan atau sudah terisi!", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
-                Exit Sub
-            Else
-                ketemuKWH()
-            End If
+            cariUnit()
         End If
     End Sub
 
@@ -491,12 +502,6 @@ salah:
                     CMD = New MySqlCommand(ubahUnit, CONN)
                     CMD.ExecuteNonQuery()
 
-                    'insert tabel kontrak
-                    koneksi()
-                    Dim simpanKontrak As String = "INSERT INTO tbl_kontrak (no_kontrak, no_kk, id_unit, tgl_mulai, tgl_akhir, status) VALUES ('" & Label61.Text & "', '" & TextBox1.Text & "', '" & TextBox3.Text & "', '" & Format(Now(), "yyyy-mm-dd") & "', '" & Format("yyyy-MM-dd", DateTimePicker4.Text) & "', 'Aktif' "
-                    CMD = New MySqlCommand(simpanKontrak, CONN)
-                    CMD.ExecuteNonQuery()
-
                     'simpan tabel penduduk
                     Try
                         koneksi()
@@ -506,12 +511,25 @@ salah:
                             CMD = New MySqlCommand(simpanPenduduk, CONN)
                             CMD.ExecuteNonQuery()
                         Next
+
+                        'insert tabel kontrak
+                        koneksi()
+                        Dim simpanKontrak As String = "INSERT INTO tbl_kontrak (no_kontrak, no_kk, id_unit, tgl_mulai, tgl_akhir, status) VALUES ('" & Label61.Text & "', '" & TextBox1.Text & "', '" & TextBox3.Text & "', '" & Format(Now(), "yyyy-MM-dd") & "', '" & Format("yyyy-MM-dd", DateTimePicker4.Text) & "', 'Aktif')"
+                        CMD = New MySqlCommand(simpanKontrak, CONN)
+                        CMD.ExecuteNonQuery()
+
                         MsgBox("Data berhasil disimpan", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
                         surat_insert()
+                        TextBox1.Clear()
+                        TextBox22.Clear()
+                        TextBox2.Clear()
+                        TextBox4.Clear()
+                        TextBox5.Clear()
+                        TextBox6.Clear()
                         kosong()
                     Catch ex As Exception
                         MsgBox(ex.Message)
-                    End Try   
+                    End Try
                 Else
                     If MessageBox.Show("Edit seluruh data keluarga dengan No KK " & TextBox1.Text & " ?", "Master Penduduk - Aplikasi SIAP", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                         Try
@@ -572,6 +590,12 @@ salah:
 
                             MsgBox("Data berhasil disimpan", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
                             surat_insert()
+                            TextBox1.Clear()
+                            TextBox22.Clear()
+                            TextBox2.Clear()
+                            TextBox4.Clear()
+                            TextBox5.Clear()
+                            TextBox6.Clear()
                             kosong()
                         Catch ex As Exception
                             MsgBox(ex.Message)
@@ -637,12 +661,18 @@ salah:
 
                 'edit tabel kontrak
                 koneksi()
-                Dim editKontrak As String = "UPDATE tbl_kontrak SET status='Tidak Aktif' WHERE no_kontrak = '" & Label61.Text & "'"
+                Dim editKontrak As String = "DELETE FROM tbl_kontrak WHERE no_kontrak = '" & Label61.Text & "'"
                 CMD = New MySqlCommand(editKontrak, CONN)
                 CMD.ExecuteNonQuery()
 
                 MsgBox("Data berhasil dihapus", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
                 kosong()
+                TextBox1.Clear()
+                TextBox22.Clear()
+                TextBox2.Clear()
+                TextBox4.Clear()
+                TextBox5.Clear()
+                TextBox6.Clear()
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -651,6 +681,12 @@ salah:
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         kosong()
+        TextBox1.Clear()
+        TextBox22.Clear()
+        TextBox2.Clear()
+        TextBox4.Clear()
+        TextBox5.Clear()
+        TextBox6.Clear()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
