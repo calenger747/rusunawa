@@ -31,12 +31,16 @@ Public Class LoginForm1
                 MenuUtama.MasterToolStripMenuItem.Visible = True
                 MenuUtama.ReservasiUnitToolStripMenuItem.Visible = True
                 MenuUtama.TransaksiToolStripMenuItem.Visible = True
-                MenuUtama.FasilitasToolStripMenuItem.Visible = True
                 If DR.Item("user_role") = "1" Then
                     MenuUtama.LaporanToolStripMenuItem.Visible = False
+                    MenuUtama.FasilitasToolStripMenuItem.Visible = False
                 Else
                     MenuUtama.LaporanToolStripMenuItem.Visible = True
+                    MenuUtama.FasilitasToolStripMenuItem.Visible = True
                 End If
+
+                MenuUtama.Add_Transaksi_Bulan()
+                MenuUtama.menunggak()
             Else
                 MsgBox("Login Gagal!", MsgBoxStyle.Exclamation, "Login Aplikasi SIAP")
                 kosong()

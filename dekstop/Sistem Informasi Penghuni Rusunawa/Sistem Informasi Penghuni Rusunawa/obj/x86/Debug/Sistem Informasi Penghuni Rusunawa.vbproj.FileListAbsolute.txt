@@ -80,7 +80,6 @@ D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informas
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.exe
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.pdb
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\bin\Debug\Sistem Informasi Penghuni Rusunawa.xml
-D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.vbprojResolveAssemblyReference.cache
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.CariIDPenghuni.resources
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.CariKodeBooking.resources
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.DetailKeluarga.resources
@@ -112,3 +111,4 @@ D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informas
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.exe.manifest
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem Informasi Penghuni Rusunawa.application
 D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.LaporanSurat.resources
+D:\Clone Git\rusunawa\dekstop\Sistem Informasi Penghuni Rusunawa\Sistem Informasi Penghuni Rusunawa\obj\x86\Debug\Sistem_Informasi_Penghuni_Rusunawa.UploadToken.resources

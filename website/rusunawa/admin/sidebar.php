@@ -21,4 +21,17 @@
             <a class="dropdown-item" href="index_sambutan.php">Update Sambutan</a>
             <a class="dropdown-item" href="index_galery.php">Update Galery</a>
     </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Laporan</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <!-- <a class="dropdown-item" href="#"->User</a> -->
+            <a class="dropdown-item" href="laporan_penduduk.php">Penduduk</a>
+            <a class="dropdown-item" href="laporan_kepala_keluarga.php">Kepala Keluarga</a>
+            <a class="dropdown-item" href="laporan_unit.php">Unit</a>
+            <a class="dropdown-item" href="laporan_transaksi.php">Transaksi Pembayaran</a>
+           
+    </li>
 </ul>

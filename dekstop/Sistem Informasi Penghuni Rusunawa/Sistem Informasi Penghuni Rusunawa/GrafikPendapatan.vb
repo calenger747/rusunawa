@@ -3,45 +3,83 @@ Public Class GrafikPendapatan
 
     Sub pendapatanSemua()
         koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView1.DataSource = DS.Tables(0)
-        DataGridView1.ReadOnly = True
-        Dim x As Integer
-        For line As Integer = 0 To DataGridView1.RowCount - 1
-            x = x + DataGridView1.Rows(line).Cells(0).Value
-        Next
-        Label1.Text = x
+        CMD = New MySqlCommand("SELECT SUM(harga) FROM tbl_unit", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not IsDBNull(DR.Item(0)) Then
+            Label4.Text = DR.Item(0)
+        Else
+            Label4.Text = "0"
+        End If
+        
+        koneksi()
+        CMD = New MySqlCommand("SELECT SUM(harga) FROM tbl_unit WHERE status != 'Rusak Ringan' AND status != 'Rusak Berat'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not IsDBNull(DR.Item(0)) Then
+            Label5.Text = DR.Item(0)
+        Else
+            Label5.Text = "0"
+        End If
 
         koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE keterangan = 'LUNAS'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView2.DataSource = DS.Tables(0)
-        DataGridView2.ReadOnly = True
-        Dim y As Integer
-        For line As Integer = 0 To DataGridView2.RowCount - 1
-            y = y + DataGridView2.Rows(line).Cells(0).Value
-        Next
-        Label2.Text = y
+        CMD = New MySqlCommand("SELECT SUM(harga) FROM tbl_unit WHERE status = 'Isi'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not IsDBNull(DR.Item(0)) Then
+            Label1.Text = DR.Item(0)
+        Else
+            Label1.Text = "0"
+        End If
+        
+        koneksi()
+        CMD = New MySqlCommand("SELECT SUM(jumlah) FROM tbl_pembayaran JOIN tbl_unit ON tbl_pembayaran.id_pelanggan = tbl_unit.id_unit WHERE tbl_pembayaran.keterangan = 'LUNAS' AND tbl_pembayaran.bulan = '" & DateTimePicker1.Text & "' AND tbl_unit.status = 'Isi'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not IsDBNull(DR.Item(0)) Then
+            Label2.Text = DR.Item(0)
+        Else
+            Label2.Text = "0"
+        End If
 
         koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE keterangan NOT LIKE 'LUNAS%'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView3.DataSource = DS.Tables(0)
-        DataGridView3.ReadOnly = True
-        Dim z As Integer
-        For line As Integer = 0 To DataGridView3.RowCount - 1
-            z = z + DataGridView3.Rows(line).Cells(0).Value
-        Next
-        Label3.Text = z
+        CMD = New MySqlCommand("SELECT SUM(jumlah) FROM tbl_pembayaran JOIN tbl_unit ON tbl_pembayaran.id_pelanggan = tbl_unit.id_unit WHERE tbl_pembayaran.keterangan != 'LUNAS' AND tbl_pembayaran.bulan = '" & DateTimePicker1.Text & "' AND tbl_unit.status = 'Isi'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not IsDBNull(DR.Item(0)) Then
+            Label3.Text = DR.Item(0)
+        Else
+            Label3.Text = "0"
+        End If
     End Sub
 
     Sub pendapatanGedung()
         koneksi()
-        DA = New MySqlDataAdapter("SELECT tbl_pembayaran.jumlah FROM tbl_pembayaran, tbl_unit WHERE tbl_unit.id_unit = tbl_pembayaran.id_pelanggan AND tbl_unit.gedung = '" & ComboBox1.Text & "'", CONN)
+        DA = New MySqlDataAdapter("SELECT harga FROM tbl_unit WHERE gedung = '" & ComboBox1.Text & "'", CONN)
+        DS = New DataSet
+        DA.Fill(DS)
+        DataGridView4.DataSource = DS.Tables(0)
+        DataGridView4.ReadOnly = True
+        Dim a As Integer
+        For line As Integer = 0 To DataGridView4.RowCount - 1
+            a = a + DataGridView4.Rows(line).Cells(0).Value
+        Next
+        Label4.Text = a
+
+        koneksi()
+        DA = New MySqlDataAdapter("SELECT harga FROM tbl_unit WHERE gedung = '" & ComboBox1.Text & "' AND status != 'Rusak Ringan' AND status != 'Rusak Berat'", CONN)
+        DS = New DataSet
+        DA.Fill(DS)
+        DataGridView5.DataSource = DS.Tables(0)
+        DataGridView5.ReadOnly = True
+        Dim b As Integer
+        For line As Integer = 0 To DataGridView5.RowCount - 1
+            b = b + DataGridView5.Rows(line).Cells(0).Value
+        Next
+        Label5.Text = b
+
+        koneksi()
+        DA = New MySqlDataAdapter("SELECT harga FROM tbl_unit WHERE status = 'Isi' AND gedung = '" & ComboBox1.Text & "'", CONN)
         DS = New DataSet
         DA.Fill(DS)
         DataGridView1.DataSource = DS.Tables(0)
@@ -53,7 +91,7 @@ Public Class GrafikPendapatan
         Label1.Text = x
 
         koneksi()
-        DA = New MySqlDataAdapter("SELECT tbl_pembayaran.jumlah FROM tbl_pembayaran, tbl_unit WHERE tbl_unit.id_unit = tbl_pembayaran.id_pelanggan AND tbl_unit.gedung = '" & ComboBox1.Text & "' AND keterangan = 'LUNAS'", CONN)
+        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran JOIN tbl_unit ON tbl_pembayaran.id_pelanggan = tbl_unit.id_unit WHERE tbl_pembayaran.keterangan = 'LUNAS' AND tbl_unit.gedung = '" & ComboBox1.Text & "' AND tbl_pembayaran.bulan = '" & DateTimePicker1.Text & "' AND tbl_unit.status = 'Isi'", CONN)
         DS = New DataSet
         DA.Fill(DS)
         DataGridView2.DataSource = DS.Tables(0)
@@ -65,121 +103,7 @@ Public Class GrafikPendapatan
         Label2.Text = y
 
         koneksi()
-        DA = New MySqlDataAdapter("SELECT tbl_pembayaran.jumlah FROM tbl_pembayaran, tbl_unit WHERE tbl_unit.id_unit = tbl_pembayaran.id_pelanggan AND tbl_unit.gedung = '" & ComboBox1.Text & "' AND keterangan NOT LIKE 'LUNAS%'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView3.DataSource = DS.Tables(0)
-        DataGridView3.ReadOnly = True
-        Dim z As Integer
-        For line As Integer = 0 To DataGridView3.RowCount - 1
-            z = z + DataGridView3.Rows(line).Cells(0).Value
-        Next
-        Label3.Text = z
-    End Sub
-
-    Sub pendapatanTanggal()
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE  tgl_transaksi > '" & Format(DateTimePicker1.Value, "yyyy-MM-dd") & "' AND tgl_transaksi < '" & Format(DateTimePicker2.Value, "yyyy-MM-dd") & "'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView1.DataSource = DS.Tables(0)
-        DataGridView1.ReadOnly = True
-        Dim x As Integer
-        For line As Integer = 0 To DataGridView1.RowCount - 1
-            x = x + DataGridView1.Rows(line).Cells(0).Value
-        Next
-        Label1.Text = x
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE tgl_transaksi > '" & Format(DateTimePicker1.Value, "yyyy-MM-dd") & "' AND tgl_transaksi < '" & Format(DateTimePicker2.Value, "yyyy-MM-dd") & "' AND keterangan = 'LUNAS'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView2.DataSource = DS.Tables(0)
-        DataGridView2.ReadOnly = True
-        Dim y As Integer
-        For line As Integer = 0 To DataGridView2.RowCount - 1
-            y = y + DataGridView2.Rows(line).Cells(0).Value
-        Next
-        Label2.Text = y
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE tgl_transaksi > '" & Format(DateTimePicker1.Value, "yyyy-MM-dd") & "' AND tgl_transaksi < '" & Format(DateTimePicker2.Value, "yyyy-MM-dd") & "' AND keterangan NOT LIKE 'LUNAS%'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView3.DataSource = DS.Tables(0)
-        DataGridView3.ReadOnly = True
-        Dim z As Integer
-        For line As Integer = 0 To DataGridView3.RowCount - 1
-            z = z + DataGridView3.Rows(line).Cells(0).Value
-        Next
-        Label3.Text = z
-    End Sub
-
-    Sub pendapatanBulan()
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE bulan = '" & DateTimePicker3.Text & "'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView1.DataSource = DS.Tables(0)
-        DataGridView1.ReadOnly = True
-        Dim x As Integer
-        For line As Integer = 0 To DataGridView1.RowCount - 1
-            x = x + DataGridView1.Rows(line).Cells(0).Value
-        Next
-        Label1.Text = x
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE keterangan = 'LUNAS' AND bulan = '" & DateTimePicker3.Text & "'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView2.DataSource = DS.Tables(0)
-        DataGridView2.ReadOnly = True
-        Dim y As Integer
-        For line As Integer = 0 To DataGridView2.RowCount - 1
-            y = y + DataGridView2.Rows(line).Cells(0).Value
-        Next
-        Label2.Text = y
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE keterangan NOT LIKE 'LUNAS%' AND bulan = '" & DateTimePicker3.Text & "'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView3.DataSource = DS.Tables(0)
-        DataGridView3.ReadOnly = True
-        Dim z As Integer
-        For line As Integer = 0 To DataGridView3.RowCount - 1
-            z = z + DataGridView3.Rows(line).Cells(0).Value
-        Next
-        Label3.Text = z
-    End Sub
-
-    Sub pendapatanTahun()
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE year(tgl_transaksi) = '" & DateTimePicker4.Text & "'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView1.DataSource = DS.Tables(0)
-        DataGridView1.ReadOnly = True
-        Dim x As Integer
-        For line As Integer = 0 To DataGridView1.RowCount - 1
-            x = x + DataGridView1.Rows(line).Cells(0).Value
-        Next
-        Label1.Text = x
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE keterangan = 'LUNAS' AND year(tgl_transaksi) = '" & DateTimePicker4.Text & "'", CONN)
-        DS = New DataSet
-        DA.Fill(DS)
-        DataGridView2.DataSource = DS.Tables(0)
-        DataGridView2.ReadOnly = True
-        Dim y As Integer
-        For line As Integer = 0 To DataGridView2.RowCount - 1
-            y = y + DataGridView2.Rows(line).Cells(0).Value
-        Next
-        Label2.Text = y
-
-        koneksi()
-        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran WHERE keterangan NOT LIKE 'LUNAS%' AND year(tgl_transaksi) = '" & DateTimePicker4.Text & "'", CONN)
+        DA = New MySqlDataAdapter("SELECT jumlah FROM tbl_pembayaran JOIN tbl_unit ON tbl_pembayaran.id_pelanggan = tbl_unit.id_unit WHERE tbl_pembayaran.keterangan != 'LUNAS' AND tbl_unit.gedung = '" & ComboBox1.Text & "' AND tbl_pembayaran.bulan = '" & DateTimePicker1.Text & "' AND tbl_unit.status = 'Isi'", CONN)
         DS = New DataSet
         DA.Fill(DS)
         DataGridView3.DataSource = DS.Tables(0)
@@ -192,23 +116,25 @@ Public Class GrafikPendapatan
     End Sub
 
     Sub tambahChart()
-        Me.Chart1.Series("Pendapatan Seharusnya").Points.AddXY("Grafik Pendapatan Sewa Rusunawa", Label1.Text)
-        Me.Chart1.Series("Pendapatan Sekarang").Points.AddXY("Pendapatan Sekarang", Label2.Text)
-        Me.Chart1.Series("Pendapatan Tertunda").Points.AddXY("Pendapatan Tertunda", Label3.Text)
+        Me.Chart1.Series("Pendapatan Maksimal (" + Format(Val(Label4.Text), "Rp, ###,###.#0") + ")").Points.AddXY("Grafik Pendapatan Sewa Rusunawa", Label4.Text)
+        Me.Chart1.Series("Pendapatan Optimal (" + Format(Val(Label5.Text), "Rp, ###,###.#0") + ")").Points.AddXY("Pendapatan Optimal", Label5.Text)
+        Me.Chart1.Series("Realisasi Pendapatan (" + Format(Val(Label1.Text), "Rp, ###,###.#0") + ")").Points.AddXY("Realisasi Pendapatan", Label1.Text)
+        Me.Chart1.Series("Pendapatan Real (" + Format(Val(Label2.Text), "Rp, ###,###.#0") + ")").Points.AddXY("Pendapatan Real", Label2.Text)
+        Me.Chart1.Series("Pendapatan Tertunggak (" + Format(Val(Label3.Text), "Rp, ###,###.#0") + ")").Points.AddXY("Pendapatan Tertunggak", Label3.Text)
 
         Chart1.Visible = True
     End Sub
 
     Sub tambahSeries()
-        Chart1.Series.Add("Pendapatan Seharusnya")
-        Chart1.Series.Add("Pendapatan Sekarang")
-        Chart1.Series.Add("Pendapatan Tertunda")
+        Chart1.Series.Add("Pendapatan Maksimal (" + Format(Val(Label4.Text), "Rp, ###,###.#0") + ")")
+        Chart1.Series.Add("Pendapatan Optimal (" + Format(Val(Label5.Text), "Rp, ###,###.#0") + ")")
+        Chart1.Series.Add("Realisasi Pendapatan (" + Format(Val(Label1.Text), "Rp, ###,###.#0") + ")")
+        Chart1.Series.Add("Pendapatan Real (" + Format(Val(Label2.Text), "Rp, ###,###.#0") + ")")
+        Chart1.Series.Add("Pendapatan Tertunggak (" + Format(Val(Label3.Text), "Rp, ###,###.#0") + ")")
     End Sub
 
     Sub kosongChart()
         Chart1.Series.Clear()
-
-        tambahSeries()
     End Sub
 
     Private Sub GrafikPendapatan_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -219,31 +145,19 @@ Public Class GrafikPendapatan
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         kosongChart()
         pendapatanSemua()
+        tambahSeries()
         tambahChart()
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        kosongChart()
-        pendapatanGedung()
-        tambahChart()
-    End Sub
-
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        kosongChart()
-        pendapatanTanggal()
-        tambahChart()
-    End Sub
-
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        kosongChart()
-        pendapatanBulan()
-        tambahChart()
-    End Sub
-
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        kosongChart()
-        pendapatanTahun()
-        tambahChart()
+        If ComboBox1.Text = "" Or ComboBox1.Text = "Gedung" Then
+            MsgBox("Pilih Gedung Terlebih Dahulu", MsgBoxStyle.Exclamation, "Grafik Pendapatan - Aplikasi SIAP")
+        Else
+            kosongChart()
+            pendapatanGedung()
+            tambahSeries()
+            tambahChart()
+        End If
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click

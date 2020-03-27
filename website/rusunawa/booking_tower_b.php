@@ -102,7 +102,7 @@ right: 5px;
 }
   </style>
 
-<body src="../deluxe/images/background_web.jpg" width=1300 height=300>
+<body src="../deluxe/images/background_web.jpg" width=1300 height=300 onload="updateDB();">
 <?php 
 //KONEKSI DATABASE
 $servername = "localhost";
@@ -193,4 +193,13 @@ $sql = mysqli_query($connection, "SELECT * FROM tower_b WHERE kode='$kode_unit'"
 
 </table>
 </form>
+
+<script type="text/javascript">
+      function updateDB(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/rusunawa/proses-reject-booking.php", true);
+        xhr.send(null);
+        /* ignore result */
+      }
+    </script>
 </html>

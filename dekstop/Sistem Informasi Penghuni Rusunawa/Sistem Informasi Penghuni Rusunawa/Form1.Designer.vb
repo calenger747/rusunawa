@@ -41,6 +41,7 @@ Partial Class MenuUtama
         Me.UnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TokenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KependudukanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UploadTokenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReservasiUnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembayaranSewaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,9 +61,15 @@ Partial Class MenuUtama
         Me.PembayaranSewaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembelianListrikToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.InventoryToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -146,7 +153,7 @@ Partial Class MenuUtama
         '
         'MasterToolStripMenuItem
         '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProfilToolStripMenuItem, Me.InventoryToolStripMenuItem, Me.UserToolStripMenuItem, Me.UnitToolStripMenuItem, Me.TokenToolStripMenuItem, Me.KependudukanToolStripMenuItem})
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProfilToolStripMenuItem, Me.InventoryToolStripMenuItem, Me.UserToolStripMenuItem, Me.UnitToolStripMenuItem, Me.TokenToolStripMenuItem, Me.KependudukanToolStripMenuItem, Me.UploadTokenToolStripMenuItem})
         Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
         Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.MasterToolStripMenuItem.Text = "Master"
@@ -187,6 +194,12 @@ Partial Class MenuUtama
         Me.KependudukanToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.KependudukanToolStripMenuItem.Text = "Kependudukan"
         '
+        'UploadTokenToolStripMenuItem
+        '
+        Me.UploadTokenToolStripMenuItem.Name = "UploadTokenToolStripMenuItem"
+        Me.UploadTokenToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.UploadTokenToolStripMenuItem.Text = "Upload Token"
+        '
         'ReservasiUnitToolStripMenuItem
         '
         Me.ReservasiUnitToolStripMenuItem.Name = "ReservasiUnitToolStripMenuItem"
@@ -197,7 +210,7 @@ Partial Class MenuUtama
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PembayaranSewaToolStripMenuItem, Me.PembelianListrikToolStripMenuItem})
         Me.TransaksiToolStripMenuItem.Name = "TransaksiToolStripMenuItem"
-        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.TransaksiToolStripMenuItem.Text = "Transaksi"
         '
         'PembayaranSewaToolStripMenuItem
@@ -304,6 +317,42 @@ Partial Class MenuUtama
         Me.InventoryToolStripMenuItem1.Size = New System.Drawing.Size(170, 22)
         Me.InventoryToolStripMenuItem1.Text = "Inventory"
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(8, 32)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(72, 38)
+        Me.DataGridView1.TabIndex = 18
+        Me.DataGridView1.Visible = False
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "yyyy-MM-dd"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(476, 0)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(111, 22)
+        Me.DateTimePicker1.TabIndex = 19
+        Me.DateTimePicker1.Visible = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(593, 2)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(50, 22)
+        Me.TextBox1.TabIndex = 20
+        Me.TextBox1.Visible = False
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(86, 32)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(65, 38)
+        Me.DataGridView2.TabIndex = 21
+        Me.DataGridView2.Visible = False
+        '
         'MenuUtama
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -313,6 +362,10 @@ Partial Class MenuUtama
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.ControlBox = False
+        Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -330,6 +383,8 @@ Partial Class MenuUtama
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -371,5 +426,10 @@ Partial Class MenuUtama
     Friend WithEvents SewaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReservasiUnitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UnitExcelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents UploadTokenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

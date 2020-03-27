@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  if (@$_SESSION['level'] == "admin") {
+    header("location:index_admin.php");
+  } else {
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +98,7 @@ label{
       <label>Password</label>
       <input type="password" name="password" class="form_login" placeholder="Password" required="required">
  
-      <input type="submit" class="tombol_login" value="LOGIN">
+      <input type="submit" name="login" class="tombol_login" value="LOGIN">
  
       <br/>
       <br/>
@@ -101,3 +109,4 @@ label{
  
 </body>
 </html>
+<?php } ?>

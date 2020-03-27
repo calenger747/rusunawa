@@ -63,6 +63,14 @@ $data = mysqli_fetch_assoc($query);
 
 
     </form>
+    <script type="text/javascript">
+      function updateDB(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/rusunawa/proses-reject-booking.php", true);
+        xhr.send(null);
+        /* ignore result */
+      }
+    </script>
 
     </body>
 </html>

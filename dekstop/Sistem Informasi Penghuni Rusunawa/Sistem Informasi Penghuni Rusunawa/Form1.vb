@@ -1,6 +1,60 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class MenuUtama
 
+    Sub Add_Transaksi_Bulan()
+        koneksi()
+        DA = New MySqlDataAdapter("SELECT id_unit, harga FROM tbl_unit JOIN tbl_keluarga ON tbl_unit.id_unit = tbl_keluarga.id_penghuni", CONN)
+        DS = New DataSet
+        DA.Fill(DS)
+        DataGridView1.DataSource = DS.Tables(0)
+
+        CMD = New MySqlCommand("SELECT * FROM tbl_pembayaran JOIN tbl_unit ON tbl_unit.id_unit = tbl_pembayaran.id_pelanggan WHERE MONTH(tbl_pembayaran.tgl_transaksi) = '" & Format(Now, "MM") & "' AND YEAR(tbl_pembayaran.tgl_transaksi) = '" & Format(Now, "yyyy") & "' AND tbl_pembayaran.bulan = '" & Format(Now, "MMMM yyyy") & "'", CONN)
+        DR = CMD.ExecuteReader
+        DR.Read()
+        If Not DR.HasRows Then
+            Try
+                For i As Integer = 0 To DataGridView1.Rows.Count - 2
+                    koneksi()
+                    Dim transaksi As String = "INSERT INTO tbl_pembayaran(no_transaksi, tgl_transaksi, jatuh_tempo, id_pelanggan, bulan, jumlah, keterangan) VALUES('" & i & "-" & Format(Now, "MM-yyyy") & "','" & Format(Now, "yyyy-MM") & "-01','" & Format(Now, "yyyy-MM") & "-20','" & DataGridView1.Rows(i).Cells(0).Value & "','" & Format(Now, "MMMM yyyy") & "','" & DataGridView1.Rows(i).Cells(1).Value & "','BELUM BAYAR')"
+                    CMD = New MySqlCommand(transaksi, CONN)
+                    CMD.ExecuteNonQuery()
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+
+        End If
+        
+    End Sub
+
+    Sub menunggak()
+        If TextBox1.Text > "20" Then
+            koneksi()
+            DA = New MySqlDataAdapter("SELECT no_transaksi, keterangan FROM tbl_pembayaran JOIN tbl_unit ON tbl_unit.id_unit = tbl_pembayaran.id_pelanggan WHERE MONTH(tbl_pembayaran.tgl_transaksi) = '" & Format(Now, "MM") & "' AND YEAR(tbl_pembayaran.tgl_transaksi) = '" & Format(Now, "yyyy") & "' AND tbl_pembayaran.keterangan = 'BELUM BAYAR'", CONN)
+            DS = New DataSet
+            DA.Fill(DS)
+            DataGridView2.DataSource = DS.Tables(0)
+
+            koneksi()
+            CMD = New MySqlCommand("SELECT * FROM tbl_pembayaran JOIN tbl_unit ON tbl_unit.id_unit = tbl_pembayaran.id_pelanggan WHERE MONTH(tbl_pembayaran.tgl_transaksi) = '" & Format(Now, "MM") & "' AND YEAR(tbl_pembayaran.tgl_transaksi) = '" & Format(Now, "yyyy") & "' AND tbl_pembayaran.keterangan = 'BELUM BAYAR'", CONN)
+            DR = CMD.ExecuteReader
+            DR.Read()
+            If DR.HasRows Then
+                Try
+                    For i As Integer = 0 To DataGridView2.Rows.Count - 2
+                        koneksi()
+                        CMD = New MySqlCommand("UPDATE tbl_pembayaran SET keterangan = 'MENUNGGAK' WHERE no_transaksi = '" & DataGridView2.Rows(i).Cells(0).Value & "'", CONN)
+                        CMD.ExecuteNonQuery()
+                    Next
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            Else
+            End If
+        End If
+    End Sub
+
     Sub Akses()
         koneksi()
         CMD = New MySqlCommand("SELECT * FROM tbl_m_user WHERE user_id = '" & ToolStripStatusLabel1.Text & "'", CONN)
@@ -24,6 +78,8 @@ Public Class MenuUtama
     Private Sub MenuUtama_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         koneksi()
         tampilMenu()
+        DateTimePicker1.Text = DateTime.Parse("20-" + Format(Now(), "MM") + "-" + Format(Now(), "yyyy"))
+        TextBox1.Text = Format(Now, "dd")
     End Sub
 
     Sub tampilMenu()
@@ -142,5 +198,9 @@ Public Class MenuUtama
 
     Private Sub UnitExcelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UnitExcelToolStripMenuItem.Click
         ExcelUnit.ShowDialog()
+    End Sub
+
+    Private Sub UploadTokenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UploadTokenToolStripMenuItem.Click
+        UploadToken.ShowDialog()
     End Sub
 End Class

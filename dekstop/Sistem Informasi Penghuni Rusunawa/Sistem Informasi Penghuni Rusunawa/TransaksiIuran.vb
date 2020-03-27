@@ -66,7 +66,7 @@ Public Class TransaksiIuran
     Sub noTransaksiOtomatis()
         koneksi()
         Dim otomatis As Single
-        CMD = New MySqlCommand("SELECT COUNT(*) AS no_transaksi FROM tbl_pembayaran", CONN)
+        CMD = New MySqlCommand("SELECT COUNT(*) AS no_transaksi FROM tbl_pembayaran WHERE YEAR(tgl_transaksi) = '" & Format(Now, "yyyy") & "'", CONN)
         DR = CMD.ExecuteReader
         While DR.Read()
             otomatis = Val(DR.Item("no_transaksi").ToString) + 1
@@ -168,13 +168,6 @@ Public Class TransaksiIuran
                 ketemuPembayaran()
                 kolomGrid()
                 Label10.Text = TextBox5.Text
-
-                'iuran bulan depan
-                koneksi()
-                Dim iuranBulanDepan As String = "INSERT INTO tbl_pembayaran VALUES('" & Format(Now, "yy-MM-dd-hh-mm-ss") & "','" & Format(Now, "yyyy-MM-dd") & "','" & Format("yyyy-MM-dd", DateTimePicker3.Text) & "','" & TextBox2.Text & "','" & DateTimePicker4.Text & "','" & TextBox5.Text & "','BELUM BAYAR','" & MenuUtama.ToolStripStatusLabel1.Text & "')"
-                CMD = New MySqlCommand(iuranBulanDepan, CONN)
-                CMD.ExecuteNonQuery()
-
 
                 MsgBox("Transaksi Berhasil", MsgBoxStyle.Information, "Transaksi Pembayaran Iuran - Aplikasi SIAP")
                 struk()

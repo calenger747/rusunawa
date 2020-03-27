@@ -74,6 +74,7 @@ Public Class MasterPenduduk
         ComboBox13.Enabled = True
         DataGridView1.Rows.Clear()
         DataGridView2.Columns.Clear()
+        noSuratpernyataan()
     End Sub
 
     Sub kosongAnggotaKeluarga()
@@ -264,10 +265,12 @@ Public Class MasterPenduduk
 
         koneksi()
         Dim otomatis As Single
-        CMD = New MySqlCommand("SELECT COUNT(*) AS no_kontrak FROM tbl_kontrak", CONN)
+        Dim Hasil As String
+        CMD = New MySqlCommand("SELECT MAX(no_kontrak) AS no_kontrak FROM tbl_kontrak", CONN)
         DR = CMD.ExecuteReader
         While DR.Read()
-            otomatis = Val(DR.Item("no_kontrak").ToString) + 1
+            Hasil = Strings.Mid(DR.Item("no_kontrak"), 4, 5)
+            otomatis = Hasil + 1
         End While
         Select Case Len(Trim(otomatis))
             Case 1 : Label61.Text = "SP/0000" + Trim(Str(otomatis)) + "/RNSW/" + month + "/" + Format(Now(), "yyyy")
@@ -281,7 +284,7 @@ Public Class MasterPenduduk
     Private Sub MasterPenduduk_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         koneksi()
         kosong()
-        DateTimePicker3.Text = DateTime.Parse("10-" + Format(Now(), "MM") + "-" + Format(Now(), "yyyy")).AddMonths(1)
+        DateTimePicker3.Text = DateTime.Parse("20-" + Format(Now(), "MM") + "-" + Format(Now(), "yyyy"))
         DateTimePicker4.Text = DateTime.Parse(Format(Now(), "dd-MM") + "-" + Format(Now(), "yyyy")).AddYears(3)
         TextBox1.Focus()
         Label60.Text = (Format(Now(), "MMMM yyyy"))
@@ -455,7 +458,7 @@ salah:
 
                     'simpan tabel transaksi
                     koneksi()
-                    Dim simpanTransaksi As String = "INSERT INTO tbl_pembayaran (no_transaksi,tgl_transaksi,jatuh_tempo,id_pelanggan,bulan,jumlah,keterangan,id_user) VALUES ('" & TextBox1.Text & "','1899-12-31','" & Format("yyyy-MM-dd", DateTimePicker3.Text) & "','" & TextBox3.Text & "','" & Label60.Text & "','" & Label59.Text & "','BELUM BAYAR','" & MenuUtama.ToolStripStatusLabel1.Text & "')"
+                    Dim simpanTransaksi As String = "INSERT INTO tbl_pembayaran (no_transaksi,tgl_transaksi,jatuh_tempo,id_pelanggan,bulan,jumlah,keterangan,id_user) VALUES ('" & TextBox1.Text & "','" & Format(Now, "yyyy-MM") & "-01','" & Format("yyyy-MM-dd", DateTimePicker3.Text) & "','" & TextBox3.Text & "','" & Label60.Text & "','" & Label59.Text & "','BELUM BAYAR','" & MenuUtama.ToolStripStatusLabel1.Text & "')"
                     CMD = New MySqlCommand(simpanTransaksi, CONN)
                     CMD.ExecuteNonQuery()
 
@@ -518,6 +521,16 @@ salah:
                         CMD = New MySqlCommand(simpanKontrak, CONN)
                         CMD.ExecuteNonQuery()
 
+                        'ubah table booking jika dari kode booking
+                        If Label62.Text = "" Or Label62.Text = "Label62" Then
+
+                        Else
+                            koneksi()
+                            Dim ubahBooking As String = "UPDATE booking_unit SET status = 'Done' WHERE kode_booking = '" & Label62.Text & "'"
+                            CMD = New MySqlCommand(ubahBooking, CONN)
+                            CMD.ExecuteNonQuery()
+                        End If
+
                         MsgBox("Data berhasil disimpan", MsgBoxStyle.Information, "Master Penduduk - Aplikasi SIAP")
                         surat_insert()
                         TextBox1.Clear()
@@ -526,7 +539,9 @@ salah:
                         TextBox4.Clear()
                         TextBox5.Clear()
                         TextBox6.Clear()
+                        Label62.ResetText()
                         kosong()
+                        noSuratpernyataan()
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try

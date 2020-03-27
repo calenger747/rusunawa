@@ -1,9 +1,10 @@
 <?php
   session_start();
-  if(!isset($_SESSION['username'])) {
-    header('location:/rusunawa/admin/login.php');
-  } else {
-      $username = $_SESSION['username'];
+  error_reporting(0);
+
+  include('connection.php');
+  if (!$_SESSION['level'] == "admin") {
+    echo"<script>alert('Anda harus login terlebih dahulu !'); window.location.href = '/rusunawa/admin/login.php'</script>";
   }
 ?>
 
@@ -33,7 +34,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="updateDB();">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -83,9 +84,29 @@
           </ol>
 
           <?php include('nav-button.php'); ?>
-
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  Unit Rusunawa
+                </div>
+                <div class="card-body">
+                  <div id="container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  Pendapatan Sewa
+                </div>
+                <div class="card-body">
+                  <div id="container2"></div>
+                </div>
+              </div>
+            </div>
+          </div><br>
+        </div>
 
         </div>
         <!-- /.container-fluid -->
@@ -128,7 +149,8 @@
         </div>
       </div>
     </div>
-
+    <!-- chart -->
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -147,6 +169,79 @@
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+      function updateDB(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/rusunawa/proses-reject-booking.php", true);
+        xhr.send(null);
+        /* ignore result */
+      }
+    </script>
+
+    <script type="text/javascript">
+      <?php include('chart.php'); ?>
+      var chart = Highcharts.chart('container2', {
+        title:{
+          text : 'Pendapatan sewa rusun bulan <?= $date = date("F Y"); ?>'
+        },
+
+      // subtitle : {
+      //   text : 'plain'
+      // },
+
+      xAxis: {
+        categories : ['Pendapatan Maksimal', 'Pendapatan Optimal', 'Realisasi Pendapatan', 'Pendapatan real', 'Pendapatan Tertunggak']
+      },
+
+      series: [{
+        type: 'column',
+        colorByPoint: true,
+        name: 'Total',
+        data: [<?= $total_max ?>, <?= $total_opt ?>, <?= $total_rep ?>, <?= $total_pre ?>, <?= $total_mng ?>],
+        showInLegend: false
+      }]
+    });
+
+     var chart2 = Highcharts.chart('container', {
+        title:{
+          text : 'Unit Rusunawa <?= $date = date("F Y"); ?>'
+        },
+
+      // subtitle : {
+      //   text : 'plain'
+      // },
+
+      xAxis: {
+        categories : ['Kapasitas Gedung', 'Unit Rusak Ringan', 'Unit Rusak Berat', 'Unit Terisi', 'Unit Kosong', 'Presentase']
+      },
+
+      series: [{
+        type: 'column',
+        colorByPoint: true,
+        name: 'Total',
+        data: [<?= $jum_kps ?>, <?= $jum_urs ?>, <?= $jum_urb ?>, <?= $jum_isi ?>, <?= $jum_ksg?>, <?= $persentase?>],
+        showInLegend: false
+      }]
+    });
+
+        $('#plain').click(function() {
+          chart.update({
+          chart: {
+          inverted: false,
+          polar: false
+        },
+          subtitle: {
+            text: 'plain'
+          }
+        });
+      });
+  </script>
 
   </body>
 

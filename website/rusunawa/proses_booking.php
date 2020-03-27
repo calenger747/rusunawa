@@ -11,11 +11,11 @@ include 'connection.php';
 	$alamat =$_POST['alamat'];
 	$no_hp =$_POST['no_hp'];
 	
-$query =mysqli_query($conn," INSERT INTO booking_unit (kode_booking,tgl_booking,kode_unit,no_kk,nama,no_ktp,alamat,no_hp) VALUES ('$kode_booking','$tgl_booking','$id_unit','$no_kk','$nama','$no_ktp','$alamat','$no_hp')");
+$query =mysqli_query($conn," INSERT INTO booking_unit (kode_booking,tgl_booking,kode_unit,no_kk,nama,no_ktp,alamat,no_hp,status) VALUES ('$kode_booking','$tgl_booking','$id_unit','$no_kk','$nama','$no_ktp','$alamat','$no_hp','Pending')");
 
 if ($query) {
 	$update = mysqli_query($conn, "UPDATE tbl_unit SET status = 'Booking' WHERE id_unit='$id_unit'");
-	echo "<script>alert('Terima Kasih Anda Sudah Booking Di Rusunawa Depok, Catat Nomor Booking Anda! Di Mohon Membawa KK dan KTP ke Rusunawa Depok Maksimal 2 Minggu dari sekarang')
+	echo "<script>alert('Terima Kasih Anda Sudah Booking Di Rusunawa Depok, Catat Nomor Booking Anda! Di Mohon Membawa KK dan KTP ke Rusunawa Depok Maksimal 2 Hari dari sekarang')
 	window.open(
 	  '/rusunawa/hasil_booking.php?id=".$kode_booking."',
 	  '_blank'

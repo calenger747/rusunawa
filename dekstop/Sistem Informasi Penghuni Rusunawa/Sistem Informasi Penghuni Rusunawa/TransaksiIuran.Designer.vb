@@ -338,7 +338,7 @@ Partial Class TransaksiIuran
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(553, 146)
+        Me.Panel1.Location = New System.Drawing.Point(547, 149)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(162, 37)
         Me.Panel1.TabIndex = 6

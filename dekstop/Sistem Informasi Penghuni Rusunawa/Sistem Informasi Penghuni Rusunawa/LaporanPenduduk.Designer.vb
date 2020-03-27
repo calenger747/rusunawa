@@ -23,45 +23,45 @@ Partial Class LaporanPenduduk
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LaporanPenduduk))
-        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend10 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series94 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series95 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series96 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series97 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series98 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series99 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series100 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series101 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series102 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series103 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series104 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series105 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series106 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series107 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series108 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series109 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series110 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series111 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series112 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series113 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series114 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title7 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series115 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series116 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series117 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series118 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series119 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series120 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series121 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series122 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series123 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series124 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title8 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series21 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series22 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series23 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series24 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series25 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series26 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series27 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series28 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series29 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series30 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series31 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -865,170 +865,170 @@ Partial Class LaporanPenduduk
         '
         'Chart1
         '
-        ChartArea10.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea10)
-        Legend10.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend10)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(6, 115)
         Me.Chart1.Name = "Chart1"
-        Series94.ChartArea = "ChartArea1"
-        Series94.Legend = "Legend1"
-        Series94.Name = "Penduduk"
-        Series95.ChartArea = "ChartArea1"
-        Series95.Legend = "Legend1"
-        Series95.Name = "Kepala Keluarga"
-        Series96.ChartArea = "ChartArea1"
-        Series96.Legend = "Legend1"
-        Series96.Name = "Jumlah Pria"
-        Series97.ChartArea = "ChartArea1"
-        Series97.Legend = "Legend1"
-        Series97.Name = "Jumlah Wanita"
-        Series98.ChartArea = "ChartArea1"
-        Series98.Legend = "Legend1"
-        Series98.Name = "Kawin"
-        Series99.ChartArea = "ChartArea1"
-        Series99.Legend = "Legend1"
-        Series99.Name = "Belum Kawin"
-        Series100.ChartArea = "ChartArea1"
-        Series100.Legend = "Legend1"
-        Series100.Name = "Jumlah Balita"
-        Series101.ChartArea = "ChartArea1"
-        Series101.Legend = "Legend1"
-        Series101.Name = "Jumlah Anak Diatas 5 Tahun"
-        Series102.ChartArea = "ChartArea1"
-        Series102.Legend = "Legend1"
-        Series102.Name = "Usia Produktif"
-        Series103.ChartArea = "ChartArea1"
-        Series103.Legend = "Legend1"
-        Series103.Name = "17 Tahun Keatas"
-        Series104.ChartArea = "ChartArea1"
-        Series104.Legend = "Legend1"
-        Series104.Name = "Lansia"
-        Me.Chart1.Series.Add(Series94)
-        Me.Chart1.Series.Add(Series95)
-        Me.Chart1.Series.Add(Series96)
-        Me.Chart1.Series.Add(Series97)
-        Me.Chart1.Series.Add(Series98)
-        Me.Chart1.Series.Add(Series99)
-        Me.Chart1.Series.Add(Series100)
-        Me.Chart1.Series.Add(Series101)
-        Me.Chart1.Series.Add(Series102)
-        Me.Chart1.Series.Add(Series103)
-        Me.Chart1.Series.Add(Series104)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Penduduk"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Kepala Keluarga"
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Jumlah Pria"
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Jumlah Wanita"
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Kawin"
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Belum Kawin"
+        Series7.ChartArea = "ChartArea1"
+        Series7.Legend = "Legend1"
+        Series7.Name = "Jumlah Balita"
+        Series8.ChartArea = "ChartArea1"
+        Series8.Legend = "Legend1"
+        Series8.Name = "Jumlah Anak Diatas 5 Tahun"
+        Series9.ChartArea = "ChartArea1"
+        Series9.Legend = "Legend1"
+        Series9.Name = "Usia Produktif"
+        Series10.ChartArea = "ChartArea1"
+        Series10.Legend = "Legend1"
+        Series10.Name = "17 Tahun Keatas"
+        Series11.ChartArea = "ChartArea1"
+        Series11.Legend = "Legend1"
+        Series11.Name = "Lansia"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Series.Add(Series2)
+        Me.Chart1.Series.Add(Series3)
+        Me.Chart1.Series.Add(Series4)
+        Me.Chart1.Series.Add(Series5)
+        Me.Chart1.Series.Add(Series6)
+        Me.Chart1.Series.Add(Series7)
+        Me.Chart1.Series.Add(Series8)
+        Me.Chart1.Series.Add(Series9)
+        Me.Chart1.Series.Add(Series10)
+        Me.Chart1.Series.Add(Series11)
         Me.Chart1.Size = New System.Drawing.Size(624, 520)
         Me.Chart1.TabIndex = 59
         Me.Chart1.Text = "Chart1"
         '
         'Chart2
         '
-        ChartArea11.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea11)
-        Legend11.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend11)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
         Me.Chart2.Location = New System.Drawing.Point(636, 12)
         Me.Chart2.Name = "Chart2"
-        Series105.ChartArea = "ChartArea1"
-        Series105.Legend = "Legend1"
-        Series105.Name = "Jumlah pria"
-        Series106.ChartArea = "ChartArea1"
-        Series106.Legend = "Legend1"
-        Series106.Name = "Balita laki-laki"
-        Series107.ChartArea = "ChartArea1"
-        Series107.Legend = "Legend1"
-        Series107.Name = "Anak laki-laki diatas 5 tahun"
-        Series108.ChartArea = "ChartArea1"
-        Series108.Legend = "Legend1"
-        Series108.Name = "Pria usia produktif"
-        Series109.ChartArea = "ChartArea1"
-        Series109.Legend = "Legend1"
-        Series109.Name = "Pria diatas 17 Tahun"
-        Series110.ChartArea = "ChartArea1"
-        Series110.Legend = "Legend1"
-        Series110.Name = "Pria menikah diatas 17 tahun"
-        Series111.ChartArea = "ChartArea1"
-        Series111.Legend = "Legend1"
-        Series111.Name = "Pria menikah dibawah 17 tahun"
-        Series112.ChartArea = "ChartArea1"
-        Series112.Legend = "Legend1"
-        Series112.Name = "Pria belum menikah diatas 17 tahun"
-        Series113.ChartArea = "ChartArea1"
-        Series113.Legend = "Legend1"
-        Series113.Name = "Pria belum menikah dibawah 17 tahun"
-        Series114.ChartArea = "ChartArea1"
-        Series114.Legend = "Legend1"
-        Series114.Name = "Pria diatas 60 tahun"
-        Me.Chart2.Series.Add(Series105)
-        Me.Chart2.Series.Add(Series106)
-        Me.Chart2.Series.Add(Series107)
-        Me.Chart2.Series.Add(Series108)
-        Me.Chart2.Series.Add(Series109)
-        Me.Chart2.Series.Add(Series110)
-        Me.Chart2.Series.Add(Series111)
-        Me.Chart2.Series.Add(Series112)
-        Me.Chart2.Series.Add(Series113)
-        Me.Chart2.Series.Add(Series114)
+        Series12.ChartArea = "ChartArea1"
+        Series12.Legend = "Legend1"
+        Series12.Name = "Jumlah pria"
+        Series13.ChartArea = "ChartArea1"
+        Series13.Legend = "Legend1"
+        Series13.Name = "Balita laki-laki"
+        Series14.ChartArea = "ChartArea1"
+        Series14.Legend = "Legend1"
+        Series14.Name = "Anak laki-laki diatas 5 tahun"
+        Series15.ChartArea = "ChartArea1"
+        Series15.Legend = "Legend1"
+        Series15.Name = "Pria usia produktif"
+        Series16.ChartArea = "ChartArea1"
+        Series16.Legend = "Legend1"
+        Series16.Name = "Pria diatas 17 Tahun"
+        Series17.ChartArea = "ChartArea1"
+        Series17.Legend = "Legend1"
+        Series17.Name = "Pria menikah diatas 17 tahun"
+        Series18.ChartArea = "ChartArea1"
+        Series18.Legend = "Legend1"
+        Series18.Name = "Pria menikah dibawah 17 tahun"
+        Series19.ChartArea = "ChartArea1"
+        Series19.Legend = "Legend1"
+        Series19.Name = "Pria belum menikah diatas 17 tahun"
+        Series20.ChartArea = "ChartArea1"
+        Series20.Legend = "Legend1"
+        Series20.Name = "Pria belum menikah dibawah 17 tahun"
+        Series21.ChartArea = "ChartArea1"
+        Series21.Legend = "Legend1"
+        Series21.Name = "Pria diatas 60 tahun"
+        Me.Chart2.Series.Add(Series12)
+        Me.Chart2.Series.Add(Series13)
+        Me.Chart2.Series.Add(Series14)
+        Me.Chart2.Series.Add(Series15)
+        Me.Chart2.Series.Add(Series16)
+        Me.Chart2.Series.Add(Series17)
+        Me.Chart2.Series.Add(Series18)
+        Me.Chart2.Series.Add(Series19)
+        Me.Chart2.Series.Add(Series20)
+        Me.Chart2.Series.Add(Series21)
         Me.Chart2.Size = New System.Drawing.Size(482, 311)
         Me.Chart2.TabIndex = 60
         Me.Chart2.Text = "Chart2"
-        Title7.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title7.Name = "Penduduk Pria"
-        Title7.ToolTip = "Penduduk Pria"
-        Me.Chart2.Titles.Add(Title7)
+        Title1.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title1.Name = "Penduduk Pria"
+        Title1.ToolTip = "Penduduk Pria"
+        Me.Chart2.Titles.Add(Title1)
         '
         'Chart3
         '
-        ChartArea12.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea12)
-        Legend12.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend12)
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend3)
         Me.Chart3.Location = New System.Drawing.Point(636, 329)
         Me.Chart3.Name = "Chart3"
-        Series115.ChartArea = "ChartArea1"
-        Series115.Legend = "Legend1"
-        Series115.Name = "Jumlah wanita"
-        Series116.ChartArea = "ChartArea1"
-        Series116.Legend = "Legend1"
-        Series116.Name = "Balita perempuan"
-        Series117.ChartArea = "ChartArea1"
-        Series117.Legend = "Legend1"
-        Series117.Name = "Anak perempuan diatas 5 tahun"
-        Series118.ChartArea = "ChartArea1"
-        Series118.Legend = "Legend1"
-        Series118.Name = "Wanita usia produktif"
-        Series119.ChartArea = "ChartArea1"
-        Series119.Legend = "Legend1"
-        Series119.Name = "Wanita diatas 17 tahun"
-        Series120.ChartArea = "ChartArea1"
-        Series120.Legend = "Legend1"
-        Series120.Name = "Wanita menikah diatas 17 tahun"
-        Series121.ChartArea = "ChartArea1"
-        Series121.Legend = "Legend1"
-        Series121.Name = "Wanita menikah dibawah 17 tahun"
-        Series122.ChartArea = "ChartArea1"
-        Series122.Legend = "Legend1"
-        Series122.Name = "Wanita belum menikah diatas 17 tahun"
-        Series123.ChartArea = "ChartArea1"
-        Series123.Legend = "Legend1"
-        Series123.Name = "Wanita belum menikah dibawah 17 tahun"
-        Series124.ChartArea = "ChartArea1"
-        Series124.Legend = "Legend1"
-        Series124.Name = "Wanita diatas 60 tahun"
-        Me.Chart3.Series.Add(Series115)
-        Me.Chart3.Series.Add(Series116)
-        Me.Chart3.Series.Add(Series117)
-        Me.Chart3.Series.Add(Series118)
-        Me.Chart3.Series.Add(Series119)
-        Me.Chart3.Series.Add(Series120)
-        Me.Chart3.Series.Add(Series121)
-        Me.Chart3.Series.Add(Series122)
-        Me.Chart3.Series.Add(Series123)
-        Me.Chart3.Series.Add(Series124)
+        Series22.ChartArea = "ChartArea1"
+        Series22.Legend = "Legend1"
+        Series22.Name = "Jumlah wanita"
+        Series23.ChartArea = "ChartArea1"
+        Series23.Legend = "Legend1"
+        Series23.Name = "Balita perempuan"
+        Series24.ChartArea = "ChartArea1"
+        Series24.Legend = "Legend1"
+        Series24.Name = "Anak perempuan diatas 5 tahun"
+        Series25.ChartArea = "ChartArea1"
+        Series25.Legend = "Legend1"
+        Series25.Name = "Wanita usia produktif"
+        Series26.ChartArea = "ChartArea1"
+        Series26.Legend = "Legend1"
+        Series26.Name = "Wanita diatas 17 tahun"
+        Series27.ChartArea = "ChartArea1"
+        Series27.Legend = "Legend1"
+        Series27.Name = "Wanita menikah diatas 17 tahun"
+        Series28.ChartArea = "ChartArea1"
+        Series28.Legend = "Legend1"
+        Series28.Name = "Wanita menikah dibawah 17 tahun"
+        Series29.ChartArea = "ChartArea1"
+        Series29.Legend = "Legend1"
+        Series29.Name = "Wanita belum menikah diatas 17 tahun"
+        Series30.ChartArea = "ChartArea1"
+        Series30.Legend = "Legend1"
+        Series30.Name = "Wanita belum menikah dibawah 17 tahun"
+        Series31.ChartArea = "ChartArea1"
+        Series31.Legend = "Legend1"
+        Series31.Name = "Wanita diatas 60 tahun"
+        Me.Chart3.Series.Add(Series22)
+        Me.Chart3.Series.Add(Series23)
+        Me.Chart3.Series.Add(Series24)
+        Me.Chart3.Series.Add(Series25)
+        Me.Chart3.Series.Add(Series26)
+        Me.Chart3.Series.Add(Series27)
+        Me.Chart3.Series.Add(Series28)
+        Me.Chart3.Series.Add(Series29)
+        Me.Chart3.Series.Add(Series30)
+        Me.Chart3.Series.Add(Series31)
         Me.Chart3.Size = New System.Drawing.Size(482, 311)
         Me.Chart3.TabIndex = 61
         Me.Chart3.Text = "Chart3"
-        Title8.Name = "Penduduk Wanita"
-        Title8.ToolTip = "Penduduk Wanita"
-        Me.Chart3.Titles.Add(Title8)
+        Title2.Name = "Penduduk Wanita"
+        Title2.ToolTip = "Penduduk Wanita"
+        Me.Chart3.Titles.Add(Title2)
         '
         'GroupBox5
         '
@@ -1056,7 +1056,7 @@ Partial Class LaporanPenduduk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1130, 654)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Chart3)

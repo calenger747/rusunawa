@@ -37,7 +37,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="updateDB();">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -219,6 +219,14 @@
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
+    <script type="text/javascript">
+      function updateDB(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/rusunawa/proses-reject-booking.php", true);
+        xhr.send(null);
+        /* ignore result */
+      }
+    </script>
 
   </body>
 </form>

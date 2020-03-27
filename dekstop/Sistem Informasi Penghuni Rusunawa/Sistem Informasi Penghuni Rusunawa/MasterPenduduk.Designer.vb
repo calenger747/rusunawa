@@ -169,6 +169,7 @@ Partial Class MasterPenduduk
         Me.Label60 = New System.Windows.Forms.Label()
         Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
         Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label62 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -1539,13 +1540,23 @@ Partial Class MasterPenduduk
         Me.Label61.Size = New System.Drawing.Size(51, 15)
         Me.Label61.TabIndex = 15
         Me.Label61.Text = "Label61"
-        Me.Label61.Visible = False
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = True
+        Me.Label62.Location = New System.Drawing.Point(383, 708)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(51, 15)
+        Me.Label62.TabIndex = 16
+        Me.Label62.Text = "Label62"
+        Me.Label62.Visible = False
         '
         'MasterPenduduk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1211, 749)
+        Me.Controls.Add(Me.Label62)
         Me.Controls.Add(Me.Label61)
         Me.Controls.Add(Me.DateTimePicker4)
         Me.Controls.Add(Me.Label60)
@@ -1741,4 +1752,5 @@ Partial Class MasterPenduduk
     Friend WithEvents Label60 As System.Windows.Forms.Label
     Friend WithEvents DateTimePicker4 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label61 As System.Windows.Forms.Label
+    Friend WithEvents Label62 As System.Windows.Forms.Label
 End Class

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="updateDB();">
     <?php include('navigation.php'); ?>
     <!-- END nav -->
     <div class="hero-wrap" style="background-image: url('images/e.jpg');">
@@ -93,7 +93,7 @@
                                         <li><span>Size:</span> 45 m2</li>
                                     </ul>
                                     <hr>
-                                    <p class="pt-1"><a href="index_denah_tower_cphp" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+                                    <p class="pt-1"><a href="index_denah_tower_c.php" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -244,6 +244,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+      function updateDB(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/rusunawa/proses-reject-booking.php", true);
+        xhr.send(null);
+        /* ignore result */
+      }
+    </script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ Public Class LaporanPembelianToken
 
     Sub tampilSemua()
         koneksi()
-        DA = New MySqlDataAdapter("SELECT tbl_pembelian_token.no_transaksi, tbl_pembelian_token.tgl_bayar, tbl_token.id_penghuni, tbl_unit.unit, tbl_unit.no_kwh, tbl_token.harga_token, tbl_token.jumlah_kwh, tbl_token.tax, tbl_pembelian_token.total_bayar, tbl_token.no_token FROM tbl_pembelian_token, tbl_token, tbl_unit WHERE tbl_pembelian_token.id_token = tbl_token.id AND tbl_token.id_penghuni = tbl_unit.id_unit", CONN)
+        DA = New MySqlDataAdapter("SELECT tbl_pembelian_token.no_transaksi, tbl_pembelian_token.tgl_transaksi, tbl_token.id_penghuni, tbl_unit.unit, tbl_unit.no_kwh, tbl_token.harga_token, tbl_token.jumlah_kwh, tbl_token.tax, tbl_pembelian_token.total_bayar, tbl_token.no_token FROM tbl_pembelian_token, tbl_token, tbl_unit WHERE tbl_pembelian_token.id_token = tbl_token.id AND tbl_token.id_penghuni = tbl_unit.id_unit", CONN)
         DS = New DataSet
         DA.Fill(DS)
         DataGridView1.DataSource = DS.Tables(0)

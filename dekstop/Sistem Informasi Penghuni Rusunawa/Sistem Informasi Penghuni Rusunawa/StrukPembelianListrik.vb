@@ -17,10 +17,10 @@ Public Class StrukPembelianListrik
                 Dim MyMargins As New Margins
 
                 With MyMargins
-                    .Left = 20
-                    .Right = 20
-                    .Top = 20
-                    .Bottom = 20
+                    .Left = 15
+                    .Right = 15
+                    .Top = 15
+                    .Bottom = 15
                 End With
 
                 .PrinterSettings.DefaultPageSettings.Margins = MyMargins

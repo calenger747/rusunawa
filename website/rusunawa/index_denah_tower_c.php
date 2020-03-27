@@ -54,7 +54,7 @@
     </style>
 </head>
 
-<body>
+<body onload="updateDB();">
     <?php include('navigation.php'); ?>
     <!-- END nav -->
     <div class="hero-wrap" style="background-image: url('images/l.jpg');">
@@ -1009,6 +1009,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+      function updateDB(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/rusunawa/proses-reject-booking.php", true);
+        xhr.send(null);
+        /* ignore result */
+      }
+    </script>
 </body>
 
 </html>
